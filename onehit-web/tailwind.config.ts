@@ -15,6 +15,10 @@ const config: Config = {
       },
       fontFamily: {
         logo: "Logo",
+        "reddit-bold": "Reddit Sans Bold",
+        "reddit-ex": "Reddit Sans ExtraBold",
+        "reddit-semi": "Reddit Sans SemiBold",
+        "reddit-reg": "Reddit Sans Regular",
       },
       colors: {
         primary: "#AF0171",

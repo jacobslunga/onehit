@@ -25,7 +25,7 @@ class User(db.Model):
         secondary=user_follows,
         primaryjoin=(user_follows.c.follower_id == id),
         secondaryjoin=(user_follows.c.followed_id == id),
-        backref=db.backref("follows", lazy="dynamic"),
+        backref=db.backref("following", lazy="dynamic"),
         lazy="dynamic",
     )
 
@@ -53,13 +53,19 @@ class User(db.Model):
             return False
 
     def json(self):
+        hits = [hit.json() for hit in self.hits]
+        followers = [follower.json() for follower in self.followers]
+        following = [follow.json() for follow in self.following]
+
         return {
             "id": self.id,
             "username": self.username,
             "display_name": self.display_name,
             "email": self.email,
             "spotify_id": self.spotify_id,
-            "hits": [hit.json() for hit in self.hits],
-            "followers": [follower.json() for follower in self.followers],
-            "follows": [follow.json() for follow in self.follows],
+            "spotify_url": self.spotify_url,
+            "image_url": self.image_url,
+            "hits": hits,
+            "followers": followers,
+            "following": following,
         }

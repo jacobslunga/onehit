@@ -2,3 +2,23 @@
   font-family: "Logo";
   src: url("/fonts/RedditSans-Bold.ttf");
 }
+
+@font-face {
+  font-family: "Reddit Sans Bold";
+  src: url("/fonts/RedditSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Reddit Sans ExtraBold";
+  src: url("/fonts/RedditSans-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "Reddit Sans SemiBold";
+  src: url("/fonts/RedditSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Reddit Sans Regular";
+  src: url("/fonts/RedditSans-Regular.ttf");
+}

@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import get_jwt_identity, jwt_required
 
-from models import User
+from models.User import User
 
 users_bp = Blueprint("users", __name__, url_prefix="/users")
 
@@ -16,6 +16,9 @@ def get_user():
         return jsonify({"msg": "Missing user_id in JWT"}), 400
 
     user = User.query.filter_by(id=user_id).first()
+
+    if user is None:
+        return jsonify({"msg": "User not found"}), 404
 
     return jsonify(user.json()), 200
 
@@ -84,10 +87,7 @@ def login_user():
 
     if user is None:
         user = User(
-            username=data["username"],
-            display_name=data["display_name"],
-            email=data["email"],
-            spotify_id=data["spotify_id"],
+            **data,
         )
         user.save()
 
