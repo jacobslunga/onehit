@@ -1,27 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
   margin: 0;
   padding: 0;
 }
 
-html {
-  overflow: hidden;
+body {
+  overflow-y: hidden;
 }
 
-.background {
-  background-color: #e5e5f7;
-  opacity: 1;
-  background-image: radial-gradient(circle at center center, #af0171, #000),
-    repeating-radial-gradient(
-      circle at center center,
-      #af0171,
-      #af0171,
-      10px,
-      transparent 20px,
-      transparent 10px
-    );
-  background-blend-mode: multiply;
+.mission {
+  background-color: hsla(0, 100%, 50%, 0);
+  background-image: radial-gradient(
+      at 80% 100%,
+      hsla(321, 97%, 34%, 0.38) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 87% 7%, hsla(19, 100%, 75%, 0.43) 0px, transparent 50%);
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
